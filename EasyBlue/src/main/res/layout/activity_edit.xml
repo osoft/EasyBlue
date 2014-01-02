@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:padding="10dp">
+
+    <Switch
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Switch"
+        android:id="@+id/switchOnOff"
+        android:layout_gravity="center_horizontal"
+        android:checked="true"
+        android:enabled="true"
+        android:layout_marginBottom="15dp"/>
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="false"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentBottom="true"
+        android:text="Save"
+        android:id="@+id/btnSave"/>
+
+    <SeekBar
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/sbBrightness"
+        android:layout_below="@+id/tvBrightness"
+        android:layout_alignParentStart="false"
+        android:max="100"
+        android:progress="0"
+        android:mirrorForRtl="false"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/brightness"
+        android:id="@+id/tvBrightness"
+        android:layout_below="@+id/switchOnOff"
+        android:layout_alignParentStart="true"/>
+
+
+</RelativeLayout>

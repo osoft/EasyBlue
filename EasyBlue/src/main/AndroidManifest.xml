@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="net.zalio.android.easyblue"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="18"
+        android:targetSdkVersion="19" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-feature android:name="android.hardware.bluetooth_le" android:required="true"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="net.zalio.android.easyblue.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <receiver android:name=".EasyBlueReceiver">
+            <intent-filter>
+                <action android:name="net.zalio.android.easyblue.DEVICE_FOUND" />
+            </intent-filter>
+        </receiver>
+
+        <!-- plugin part -->
+        <activity
+            android:name=".EditActivity"
+            android:icon="@drawable/ic_launcher">
+            <intent-filter>
+                <action android:name="com.twofortyfouram.locale.intent.action.EDIT_SETTING" />
+            </intent-filter>
+        </activity>
+        <!-- Listen for the "fire" action-->
+        <receiver android:name=".PluginReceiver" >
+            <intent-filter>
+                <action android:name="com.twofortyfouram.locale.intent.action.FIRE_SETTING" />
+            </intent-filter>
+        </receiver>
+        <service android:name=".EasyBlueControlService">
+            <intent-filter>
+                <action android:name="net.zalio.android.easyblue.PLUGIN_FIRE" />
+            </intent-filter>
+        </service>
+
+    </application>
+
+</manifest>
