@@ -18,12 +18,14 @@ public class EditActivity extends Activity {
     public static String EXTRA_BLURB = "com.twofortyfouram.locale.intent.extra.BLURB";
     public static String KEY_SWITCH = "net.zalio.android.easyblue.switch";
     public static String KEY_BRIGHTNESS = "net.zalio.android.easyblue.brightness";
+    public static String KEY_PERSISTENT= "net.zalio.android.easyblue.persistent";
 
     private Button mBtnSave;
     private Intent resultIntent;
     private int result = RESULT_CANCELED;
     private Switch mSwitch;
     private SeekBar mSbBrightness;
+    private Switch mSwitchPersistent;
 
 
     @Override
@@ -34,6 +36,18 @@ public class EditActivity extends Activity {
         mBtnSave = (Button)findViewById(R.id.btnSave);
         mSwitch = (Switch)findViewById(R.id.switchOnOff);
         mSbBrightness = (SeekBar)findViewById(R.id.sbBrightness);
+        mSwitchPersistent = (Switch)findViewById(R.id.switchPersistent);
+
+        Intent intent = getIntent();
+        Bundle b = intent.getBundleExtra(EXTRA_BUNDLE);
+        if (b != null) {
+            boolean defSwitch = b.getBoolean(KEY_SWITCH);
+            mSwitch.setChecked(defSwitch);
+            int defBrightness = b.getInt(KEY_BRIGHTNESS);
+            mSbBrightness.setProgress(defBrightness);
+            boolean defPersistent = b.getBoolean(KEY_PERSISTENT);
+            mSwitchPersistent.setChecked(defPersistent);
+        }
 
         resultIntent = new Intent();
 

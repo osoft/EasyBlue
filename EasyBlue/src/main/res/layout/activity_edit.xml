@@ -44,5 +44,16 @@
         android:layout_below="@+id/switchOnOff"
         android:layout_alignParentStart="true"/>
 
+    <Switch
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Persistent"
+        android:id="@+id/switchPersistent"
+        android:layout_below="@+id/sbBrightness"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:checked="true"
+        android:enabled="true"/>
+
 
 </RelativeLayout>
